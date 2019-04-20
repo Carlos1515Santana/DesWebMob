@@ -1,6 +1,6 @@
 
 
-package br.usjt.ciclodevidagpsemapas;
+package br.usjt.ciclodevidagpsemapas.Activity;
 
 import android.Manifest;
 import android.content.Context;
@@ -15,15 +15,18 @@ import android.support.design.widget.FloatingActionButton;
 import android.support.v4.app.ActivityCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
-import android.util.Log;
 import android.view.View;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import java.util.ArrayList;
-import java.util.function.Consumer;
+import java.util.Date;
+
+import br.usjt.ciclodevidagpsemapas.Model.APPConstants;
+import br.usjt.ciclodevidagpsemapas.Model.Localizacao;
+import br.usjt.ciclodevidagpsemapas.Dao.LocalizacaoDAO;
+import br.usjt.ciclodevidagpsemapas.R;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -60,7 +63,7 @@ public class MainActivity extends AppCompatActivity {
         locationListener = new LocationListener() {
             @Override
             public void onLocationChanged(Location location) {
-                Localizacao localizacao = new Localizacao(location.getLatitude(), location.getLongitude());
+                Localizacao localizacao = new Localizacao(location.getLatitude(), location.getLongitude(), new Date());
                 locationTextView.setText(String.format("Lat: %f, Long: %f", localizacao.getLatitude(), localizacao.getLongitude()));
                 localizacaoDAO.insertLocalizacao(localizacao);
             }

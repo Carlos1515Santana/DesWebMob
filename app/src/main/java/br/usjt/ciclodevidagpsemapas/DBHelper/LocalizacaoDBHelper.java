@@ -1,9 +1,11 @@
 
-package br.usjt.ciclodevidagpsemapas;
+package br.usjt.ciclodevidagpsemapas.DBHelper;
 
 import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
+
+import br.usjt.ciclodevidagpsemapas.DBHelper.LocalizacaoContract;
 
 public class LocalizacaoDBHelper extends SQLiteOpenHelper {
     private static final String DB_NAME = "localizacao1.db";
@@ -15,7 +17,7 @@ public class LocalizacaoDBHelper extends SQLiteOpenHelper {
 
     @Override
     public void onCreate(SQLiteDatabase db) {
-         db.execSQL(LocalizacaoContract.createTableLocalizacao());
+        db.execSQL(LocalizacaoContract.createTableLocalizacao());
     }
 
     @Override
@@ -25,7 +27,6 @@ public class LocalizacaoDBHelper extends SQLiteOpenHelper {
 
     @Override
     public void onOpen(SQLiteDatabase db) {
-        db.execSQL(LocalizacaoContract.LocalizacaoTable.DROP_TABLE);
-        onCreate(db);
+
     }
 }

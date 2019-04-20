@@ -1,5 +1,5 @@
 
-package br.usjt.ciclodevidagpsemapas;
+package br.usjt.ciclodevidagpsemapas.Adapters;
 
 import android.content.Context;
 import android.view.LayoutInflater;
@@ -9,6 +9,9 @@ import android.widget.ArrayAdapter;
 import android.widget.TextView;
 
 import java.util.List;
+
+import br.usjt.ciclodevidagpsemapas.Model.Localizacao;
+import br.usjt.ciclodevidagpsemapas.R;
 
 public class LocalizacoesArrayAdapter extends ArrayAdapter<Localizacao> {
 

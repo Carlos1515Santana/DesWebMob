@@ -1,22 +1,25 @@
 
-package br.usjt.ciclodevidagpsemapas;
+package br.usjt.ciclodevidagpsemapas.Model;
 
 import java.io.Serializable;
+import java.util.Date;
 
 public class Localizacao implements Serializable {
 
     private int id;
     private Double latitude;
     private Double longitude;
+    private Date data;
 
-    public Localizacao(double latitude, double longitude){
-        this.latitude = longitude;
-        this.longitude = longitude;
+    public Localizacao(int id, double latitude, double longitude, Date data){
+        this(latitude, longitude, data);
+        this.id = id;
     }
 
-    public Localizacao(int id, double latitude, double longitude) {
-        this(latitude, longitude);
-        this.id = id;
+    public Localizacao(double latitude, double longitude, Date data){
+        this.latitude = latitude;
+        this.longitude = longitude;
+        this.data = data;
     }
 
     public Double getLatitude() {
@@ -46,5 +49,13 @@ public class Localizacao implements Serializable {
 
     public void setId(int id) {
         this.id = id;
+    }
+
+    public Date getData() {
+        return data;
+    }
+
+    public void setData(Date data) {
+        this.data = data;
     }
 }

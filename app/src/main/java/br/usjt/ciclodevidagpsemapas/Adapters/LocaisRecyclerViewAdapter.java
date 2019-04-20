@@ -1,5 +1,5 @@
 
-package br.usjt.ciclodevidagpsemapas;
+package br.usjt.ciclodevidagpsemapas.Adapters;
 
 import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
@@ -7,7 +7,12 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import java.text.SimpleDateFormat;
 import java.util.List;
+
+import br.usjt.ciclodevidagpsemapas.ViewHolder.LocaisViewHolder;
+import br.usjt.ciclodevidagpsemapas.Model.Localizacao;
+import br.usjt.ciclodevidagpsemapas.R;
 
 public class LocaisRecyclerViewAdapter extends RecyclerView.Adapter<LocaisViewHolder> {
 
@@ -31,6 +36,8 @@ public class LocaisRecyclerViewAdapter extends RecyclerView.Adapter<LocaisViewHo
         locaisViewHolder.iconLocalizacaoImageView.setImageResource(R.drawable.ic_location_on_black_24dp);
         locaisViewHolder.longitudeTextView.setText("Longitude: " + localizacao.getLongitude());
         locaisViewHolder.latitudeTextView.setText("Latitude: " + localizacao.getLatitude());
+        SimpleDateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy HH:mm");
+        locaisViewHolder.dataTextView.setText(dateFormat.format(localizacao.getData()));
     }
 
     @Override
